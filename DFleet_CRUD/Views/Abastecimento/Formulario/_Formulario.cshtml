@@ -1,0 +1,92 @@
+﻿@model DFleet_CRUD.Models.Dominio.Abastecimento
+
+@{
+}
+
+<div class="">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Registrar um novo combustível</h4>
+                    <form class="forms-sample" asp-action="Registro" method="post">
+                        <div class="row col-12 col-sm">
+                            <div class="text-center mb-5">
+                                <button type="submit" class="btn btn-primary mr-2 col-5" value="Create">Registrar Combustível</button>
+                                <a class="btn btn-secondary mr-2 col-5" asp-controller="Abastecimento" asp-action="Index">Retornar aos Registros</a>
+                            </div>
+                            <div class="form-group col-6 col-sm">
+                                <label for="exampleInputUsername1">Username</label>
+                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Nome do Condutor" asp-for="Nome">
+                            </div>
+                            <div class="form-group col-6 col-sm">
+                                <label for="exampleInputEmail1">Veiculo Utilizado</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Veiculo" asp-for="Veiculo">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Estabelecimento</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Qual o nome do Estabelecimento?" asp-for="Estabelecimento">
+                            </div>
+                            <div class="form-group col-sm-12 col-12 row">
+                                <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Estado</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Qual seu Estado?" asp-for="Estado">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="exampleInputEmail1">Cidade</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Qual sua Cidade?" asp-for="Cidade">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-12 col-sm">
+                            <div class="form-group col-sm-12 col-12 row">
+                                <div class="form-group col-lg-3">
+                                    <label for="exampleInputEmail1">Combustível Utilizado</label>
+                                    <select asp-for="CombustivelUtilizado" asp-items="@ViewBag.Estado" class="form-select"></select>
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label for="exampleInputEmail1">Valor do Litro</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Valor do Litro" asp-for="ValorLitro">
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label for="exampleInputEmail1">Completou o Tanque?</label>
+                                    <select name="Completou o Tanque?" asp-for="CompletouTanque" class="form-select" aria-label="Selecione um Combustível" placeholder="Escolha">
+                                        <option>SIM</option>
+                                        <option>NÃO</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-3">
+                                    <label for="exampleInputEmail1">Tipo de Abastecimento</label>
+                                    <select asp-for="TipoAbastecimento" class="form-select">
+                                        <option>ABASTECIMENTO INTERNO</option>
+                                        <option>ARLA 32</option>
+                                        <option>COMBOIO</option>
+                                        <option>NORMAL</option>
+                                        <option>PARTIDA A FRIO</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12 col-12 row">
+                                <div class="form-group col-lg-4">
+                                    <label for="exampleInputEmail1">Litros Abastecidos</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Litros Abastecidos" asp-for="QuantidadeLitros">
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label for="exampleInputEmail1">Data Abastecimento</label>
+                                    <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Data Abastecimento" asp-for="DataAbastecimento">
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label for="exampleInputEmail1">Frentista</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Frentista" asp-for="Frentista">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2" value="Create">Registrar Combustível</button>
+                        <button class="btn btn-light" asp-action="Index">Cancelar Registro</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content-wrapper ends -->

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DFleet_CRUD.Models.Dominio.Abastecimento>
+
+<div class="row">
+    <div class="col-lg-12 col-sm-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="row col-6">
+                    <a class="nav-link" asp-controller="Abastecimento" asp-action="Registro">Registrar Combustível</a>
+                </div>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Abastecimento</th>
+                            <th>Condutor e Veiculo</th>
+                            <th>Valores</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var abastecimento in Model){
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => abastecimento.DataAbastecimento)</td>
+                                <td>
+                                        @Html.DisplayFor(modelItem => abastecimento.Estabelecimento)
+                                </td>
+                                <td>
+                                    <P>
+                                        @Html.DisplayFor(modelItem => abastecimento.Nome)
+                                        <hr>
+                                        Frentista:<br>
+                                        <strong>@Html.DisplayFor(modelItem => abastecimento.Frentista)</strong>
+                                        <hr>
+                                        @Html.DisplayFor(modelItem => abastecimento.Estado) - @Html.DisplayFor(modelItem => abastecimento.Cidade)
+                                    </P>
+                                </td>
+                                <td>
+                                    <p>
+                                        R$ @Html.DisplayFor(modelItem => abastecimento.ValorLitro)
+                                    </p>
+                                    <Hr>
+                                    <p>
+                                        Quantidade em Litros:<Br>
+                                        @Html.DisplayFor(modelItem => abastecimento.QuantidadeLitros)
+                                    </p>
+                                    <Hr>
+                                    <p>Custo Km: R$ 0,05</p>
+                                </td>
+                                <td>
+                                    <a asp-action="View" asp-route-id="@abastecimento.AbastecimentoId" class="btn btn-primary">Editar </a> 
+                                    <a asp-action="Delete" asp-route-id="@abastecimento.AbastecimentoId" class="btn btn-secondary">Remover</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
